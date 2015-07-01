@@ -4,11 +4,16 @@ A container for compiling LaTeX to PDF. Is available on the Docker hub as tebro/
 
 ### Usage
 
+To run a one-off compilation do:
+
 ```
-docker run -it --rm -v $(pwd):/src tebro/latex
+docker run -it --rm -v $(pwd):/src tebro/latex pdflatex ./hello.tex
 ```
 
-Hit enter, it then asks which file to use, enter the name and hit enter.
+If you want to keep the container running and watching for changes, and then recompile you can do:
 
+```
+docker run -it --rm -v $(pwd):/src tebro/latex latexmk -pvc -pdf ./hello.tex
+```
 
 If you need more dependencies you can use a `FROM tebro/latex` statement in your own Dockerfile.

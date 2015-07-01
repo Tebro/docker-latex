@@ -5,7 +5,3 @@ RUN apt-get update && apt-get install -y texlive-latex-extra latexmk texlive-lan
 
 # Mount your project to /src
 WORKDIR /src
-
-ENTRYPOINT ["/bin/sh","-c", "pdflatex"]
-
-CMD ["hello.tex"]
